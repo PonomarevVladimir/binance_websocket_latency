@@ -88,7 +88,7 @@ def stat_research(df:pd.DataFrame):
             # для матожиданий поспользуемся t-критерием Стьюдента, по-хорошему для этого необходимо проверить нормальность матожиданий
             # но мы сделаем вид, что можем применить ЦПТ, так как других тестов на равенство матожиданий ненормальных величин,
             # а у нас точно не нормальные величины, у нас и нет. Они все требуют дополнительных условий или проверяют не совсем ту гипотезу,
-            # которая нам нужна
+            # которая нам нужна 
             m_stat, m_p_value = stats.ttest_ind(sample.iloc[:,i], sample.iloc[:,j], equal_var = False)
             m_quant = stats.t.ppf(m_p_value, len(sample))
             print(f"Means test for {i+1} and {j+1} connections:\n    statistic = {m_stat:.4f},\n    p-value = {m_p_value:.4f},\n    t-quantile = {m_quant:.4f}.")
